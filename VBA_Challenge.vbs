@@ -3,23 +3,34 @@ Sub AllStocksAnalysisRefactored()
     Dim endTime  As Single
     Dim numTickers As Integer
 
-    yearValue = InputBox("What year would you like to run the analysis on?")
+    YearValue = InputBox("What year would you like to run the analysis on?")
+    
+    'Error Checking to make sure Sheet 'yearValue' exists, and exit the subroutine if it does not.
+    If Not Evaluate("ISREF('" & YearValue & "'!A1)") Then
+    
+        MsgBox ("ERROR - Sheet '" & YearValue & "' does not exist!")
+        Exit Sub
+        
+    End If
 
+    'Start the timer at the current time
     startTime = Timer
     
+    'Set the number of tickers in the data
     numTickers = 12
     
     'Format the output sheet on All Stocks Analysis worksheet
     Worksheets("All Stocks Analysis").Activate
     
-    Range("A1").Value = "All Stocks (" + yearValue + ")"
+    Range("A1").Value = "All Stocks (" + YearValue + ")"
     
     'Create a header row
     Cells(3, 1).Value = "Ticker"
     Cells(3, 2).Value = "Total Daily Volume"
     Cells(3, 3).Value = "Return"
 
-    'Initialize array of all tickers
+    'Initialize array of all tickers - ReDim is required, as
+     'VBA will not allow a variable as an array length in a Dim statement
     Dim tickers() As String
     ReDim tickers(numTickers)
     
@@ -39,7 +50,7 @@ Sub AllStocksAnalysisRefactored()
     tickers(11) = "VSLR"
     
     'Activate data worksheet
-    Worksheets(yearValue).Activate
+    Worksheets(YearValue).Activate
     
     'Get the number of rows to loop over
     RowCount = Cells(Rows.Count, "A").End(xlUp).Row
@@ -49,7 +60,7 @@ Sub AllStocksAnalysisRefactored()
     Dim tickerIndex As Integer
     tickerIndex = 0
 
-    '1b) Create three output arrays
+    '1b) Create (and ReDim) three output arrays
     
     Dim tickerVolumes() As Long
     ReDim tickerVolumes(numTickers)
@@ -90,7 +101,7 @@ Sub AllStocksAnalysisRefactored()
     Next i
     
     Worksheets("All Stocks Analysis").Activate
-    Cells(1, 1) = "All Stocks(" & yearValue & ")"
+    Cells(1, 1) = "All Stocks(" & YearValue & ")"
     Cells(3, 1) = "Ticker"
     Cells(3, 2) = "Total Daily Volume"
     Cells(3, 3) = "Return"
@@ -130,6 +141,6 @@ Sub AllStocksAnalysisRefactored()
     Next i
  
     endTime = Timer
-    MsgBox "This code ran in " & (endTime - startTime) & " seconds for the year " & (yearValue)
+    MsgBox "This code ran in " & (endTime - startTime) & " seconds for the year " & (YearValue)
 
 End Sub
