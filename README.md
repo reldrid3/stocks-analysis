@@ -59,5 +59,8 @@ Using a tickerIndex, we can keep track of the current ticker, allowing us to col
 
 #### Time Comparisons
 
+The original runtimes from the Module can be seen screenshotted in Figure 1.
 
+##### Figure 1
+![Runtimes for the original code.](/Resources/VBA_Challenge_ModuleTimes.png)
 ## Summary
