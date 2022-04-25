@@ -59,11 +59,11 @@ Using a tickerIndex, we can keep track of the current ticker, allowing us to col
 
 #### Time Comparisons
 
-The original runtimes of 0.50s and 0.48s from the Module can be seen screenshotted in [Figure 1](##Figure-1).  Compared to the [Figure 2](##Figure-2) runtimes of 0.047s, and we can see a more than 10x difference in the overall runtimes.  This makes sense, as instead of looping through the rows 12 times, we only loop over 1 time.
+The original runtimes of 0.50s and 0.48s from the Module can be seen screenshotted in [Figure 1](#figure-1).  Compared to the [Figure 2](#figure-2) runtimes of 0.047s, and we can see a more than 10x difference in the overall runtimes.  This makes sense, as instead of looping through the rows 12 times, we only loop over 1 time.
 
 #### Stock Comparisons
 
-Clearly, 2017 and 2018 had often vastly different stock market results -- only 1 stock even fell in 2017, while only 2 stocks went up in 2018 -- but there are some conclusions we can draw.  Refer to [Figure 3](##Figure-3) for a net gain/loss calculation for 2017 and 2018 combined.
+Clearly, 2017 and 2018 had often vastly different stock market results -- only 1 stock even fell in 2017, while only 2 stocks went up in 2018 -- but there are some conclusions we can draw.  Refer to [Figure 3](#figure-3) for a net gain/loss calculation for 2017 and 2018 combined.
 - The only two stocks which rose in both years were 'ENPH' and 'RUN,' implying that those are strong stocks even during an economic downturn.  'ENPH' also had the best performance of any of the other stocks, hands down.
 - Another stock to watch is 'SEDG.'  Although it fell by 7.8% in 2018, it's 2017 gains of 184.5% far outweigh it, actually making it a better overall (162.4%) investment than 'RUN' (net gain of 94.2%).
 - Stock 'DQ,' with great performance in 2017, lost almost all of it's gains in 2018, impyling that it did not do well with the market changes in 2018.
