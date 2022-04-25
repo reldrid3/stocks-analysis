@@ -29,7 +29,7 @@ YearValue = InputBox("What year would you like to run the analysis on?")
 ```
 
 ### Refactoring
-Using a tickerIndex, we can keep track of the current ticker, allowing us to collect all the tickers in one go.
+Using a tickerIndex, I can keep track of the current ticker, allowing us to collect all the tickers in one go, incrementing the ticker only at the end of a particular stock.
 ```
     ''2b) Loop over all the rows in the spreadsheet.
     For i = 2 To RowCount
@@ -59,18 +59,20 @@ Using a tickerIndex, we can keep track of the current ticker, allowing us to col
 
 #### Time Comparisons
 
-The original runtimes of 0.50s and 0.48s from the Module can be seen screenshotted in [Figure 1](#figure-1).  Compared to the [Figure 2](#figure-2) runtimes of 0.047s, and we can see a more than 10x difference in the overall runtimes.  This makes sense, as instead of looping through the rows 12 times, we only loop over 1 time.
+The original runtimes of 0.50s and 0.48s from the Module can be seen screenshotted in [Figure 1](#figure-1).  Compared to the [Figure 2](#figure-2) runtimes of 0.047s, and there is a more than 10x difference in the overall runtimes.  This makes sense, as instead of looping through the rows 12 times, it only loops over 1 time.
 
 #### Stock Comparisons
 
-Clearly, 2017 and 2018 had often vastly different stock market results -- only 1 stock even fell in 2017, while only 2 stocks went up in 2018 -- but there are some conclusions we can draw.  Refer to [Figure 3](#figure-3) for a net gain/loss calculation for 2017 and 2018 combined.
+Clearly, 2017 and 2018 had often vastly different stock market results -- only 1 stock even fell in 2017, while only 2 stocks went up in 2018 -- but there are some conclusions to be drawn.  Refer to [Figure 3](#figure-3) for a net gain/loss calculation for 2017 and 2018 combined.
 - The only two stocks which rose in both years were 'ENPH' and 'RUN,' implying that those are strong stocks even during an economic downturn.  'ENPH' also had the best performance of any of the other stocks, hands down.
 - Another stock to watch is 'SEDG.'  Although it fell by 7.8% in 2018, it's 2017 gains of 184.5% far outweigh it, actually making it a better overall (162.4%) investment than 'RUN' (net gain of 94.2%).
 - Stock 'DQ,' with great performance in 2017, lost almost all of it's gains in 2018, impyling that it did not do well with the market changes in 2018.
 
 ## Refactoring Summary
 
-Refactoring code comes with numerous advantages.  The obvious advantage would be to decrease the runtime of the script, increasing its efficiency and ability to handle larger amounts of input.  Refactoring also comes with the advantage of being able to dissect the code's inner workings, not only working to increase efficiency but also potentially adding robustness, error-checking, or additional features (for a new version, hopefully remaining backwards compatible).  The only disadvantage is that it is possible to introduce additional errors into the code, even potentially silent errors, so making sure that you test and confirm your output and functionality is important.
+Refactoring code comes with numerous advantages.  The obvious advantage would be to decrease the runtime of the script, increasing its efficiency and ability to handle larger amounts of input.  Refactoring also comes with the advantage of being able to dissect the code's inner workings, not only working to increase efficiency but also potentially adding robustness, error-checking, or additional features (for a new version, hopefully remaining backwards compatible - this is beyond "refactoring" but allows insight into improving the code).  The only disadvantage is that it is possible to introduce additional errors into the code, even potentially silent errors, so making sure that you test and confirm your output and functionality is important.
+
+In the case here, I increased the efficiency of the code by more than 10-fold given 12 stocks, implying that with any number of stocks, the runtime will still be based mostly on the total number of rows, rather than the number of different stocks.  As well, while refactoring, I also added error checking to the user input, allowing the script to exit safely should the user enter a year that doesn't match an existing worksheet.
 
 # Figures
 
