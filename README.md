@@ -63,20 +63,20 @@ The original runtimes of 0.50s and 0.48s from the Module can be seen screenshott
 
 #### Stock Comparisons
 
-Clearly, 2017 and 2018 had often vastly different stock market results -- only 1 stock even fell in 2017, while only 2 stocks went up in 2018 -- but there are some conclusions we can draw.  Refer to [Figure 3](####Figure 3) for a net gain/loss calculation for 2017 and 2018 combined.
+Clearly, 2017 and 2018 had often vastly different stock market results -- only 1 stock even fell in 2017, while only 2 stocks went up in 2018 -- but there are some conclusions we can draw.  Refer to [Figure 3](#-Figures) for a net gain/loss calculation for 2017 and 2018 combined.
 - The only two stocks which rose in both years were 'ENPH' and 'RUN,' implying that those are strong stocks even during an economic downturn.
 - Another stock to watch is 'SEDG.'  Although it fell by 7.8% in 2018, it's 2017 gains of 184.5% far outweigh it, actually making it a better overall 
 
 ## Summary
 
-### Figures
+# Figures
 
-#### Figure 1
+## Figure 1
 ![Runtimes for the original code.](/Resources/VBA_Challenge_ModuleTimes.png)
 
-#### Figure 2
+## Figure 2
 ![Results and runtime for refactored code, 2017 data.](/Resources/VBA_Challenge_2017.png)
 ![Results and runtime for refactored code, 2018 data.](/Resources/VBA_Challenge_2018.png)
 
-#### Figure 3
+## Figure 3
 ![Net stock change from 2017 to 2018.](/Resources/VBA_Challenge_2017-2018.png)
