@@ -57,4 +57,7 @@ Using a tickerIndex, we can keep track of the current ticker, allowing us to col
     Next i
 ```
 
+#### Time Comparisons
+
+
 ## Summary
