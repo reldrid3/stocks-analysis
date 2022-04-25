@@ -5,7 +5,7 @@ After analyzing a dataset, Steve Smith asked me to refactor the VBA code to work
 
 ### Current Code
 
-The current code keeps track of each ticker and outputs the data by cycling through the entire sheet each time.  This is inefficient - if there were many more than 12 tickers, this would be a significant slowdown - each ticker would need to cycle through the rows of the sheet each time, leading to an O(n<sup>2</sup>) code efficiency.
+The current code keeps track of each ticker and outputs the data by cycling through the entire sheet each time.  This is inefficient - if there were many more than 12 tickers, this would be a significant slowdown - each ticker would need to cycle through the rows of the sheet each time, leading to an O(mn) code efficiency.
 
 ### Proposed Changes
 
@@ -59,8 +59,24 @@ Using a tickerIndex, we can keep track of the current ticker, allowing us to col
 
 #### Time Comparisons
 
-The original runtimes from the Module can be seen screenshotted in Figure 1.
+The original runtimes of 0.50s and 0.48s from the Module can be seen screenshotted in Figure 1.  Compared to the Figure 2 runtimes of 0.047s, and we can see a more than 10x difference in the overall runtimes.  This makes sense, as instead of looping through the rows 12 times, we only loop over 1 time.
 
-##### Figure 1
-![Runtimes for the original code.](/Resources/VBA_Challenge_ModuleTimes.png)
+#### Stock Comparisons
+
+Clearly, 2017 and 2018 had often vastly different stock market results -- only 1 stock even fell in 2017, while only 2 stocks went up in 2018 -- but there are some conclusions we can draw.  Refer to [Figure 3](####Figure 3) for a net gain/loss calculation for 2017 and 2018 combined.
+- The only two stocks which rose in both years were 'ENPH' and 'RUN,' implying that those are strong stocks even during an economic downturn.
+- Another stock to watch is 'SEDG.'  Although it fell by 7.8% in 2018, it's 2017 gains of 184.5% far outweigh it, actually making it a better overall 
+
 ## Summary
+
+### Figures
+
+#### Figure 1
+![Runtimes for the original code.](/Resources/VBA_Challenge_ModuleTimes.png)
+
+#### Figure 2
+![Results and runtime for refactored code, 2017 data.](/Resources/VBA_Challenge_2017.png)
+![Results and runtime for refactored code, 2018 data.](/Resources/VBA_Challenge_2018.png)
+
+#### Figure 3
+![Net stock change from 2017 to 2018.](/Resources/VBA_Challenge_2017-2018.png)
